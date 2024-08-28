@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<INVOIC02>
+   <IDOC BEGIN="1">
+      <EDI_DC40 SEGMENT="1">
+         <TABNAM>EDI_DC40</TABNAM>
+         <MANDT>777</MANDT>
+         <DOCNUM>0000000001234567</DOCNUM>
+         <DOCREL>700</DOCREL>
+         <STATUS>30</STATUS>
+         <DIRECT>1</DIRECT>
+         <OUTMOD>2</OUTMOD>
+         <IDOCTYP>INVOIC02</IDOCTYP>
+         <MESTYP>INVOIC</MESTYP>
+         <SNDPOR>SAP1</SNDPOR>
+         <SNDPRT>LS</SNDPRT>
+         <SNDPRN>TSTCLNT123</SNDPRN>
+         <RCVPOR>SAP2</RCVPOR>
+         <RCVPRT>KU</RCVPRT>
+         <RCVPFC>RE</RCVPFC>
+         <RCVPRN>0000010001</RCVPRN>
+         <CREDAT>20100101</CREDAT>
+         <CRETIM>011042</CRETIM>
+         <SERIAL>20100101011042</SERIAL>
+      </EDI_DC40>
+      <E1EDK01 SEGMENT="1">
+         <CURCY/>
+         <HWAER/>
+         <WKURS/>
+         <ZTERM/>
+         <KUNDEUINR/>
+         <EIGENUINR/>
+         <BSART>INVO</BSART>
+         <BELNR>0090119326</BELNR>
+         <NTGEW>48.000</NTGEW>
+         <BRGEW>48.000</BRGEW>
+         <GEWEI>KGM</GEWEI>
+         <FKART_RL/>
+         <RECIPNT_NO/>
+         <FKTYP>L</FKTYP>
+      </E1EDK01>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>AG</PARVW>
+         <PARTN>0000010001</PARTN>
+         <LIFNR>12345678</LIFNR>
+         <NAME1>Company DELTA</NAME1>
+         <STRAS>Industry Street</STRAS>
+         <ORT01>Duckburg</ORT01>
+         <PSTLZ>86860</PSTLZ>
+         <LAND1>UK</LAND1>
+         <TELF1>00123/549945000</TELF1>
+         <TELFX>00123/549945001</TELFX>
+         <SPRAS>E</SPRAS>
+         <ANRED>Company</ANRED>
+         <IHREZ>325</IHREZ>
+         <KNREF>LGI</KNREF>
+         <SPRAS_ISO>EN</SPRAS_ISO>
+      </E1EDKA1>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>RE</PARVW>
+         <PARTN>0000010001</PARTN>
+         <LIFNR>12345678</LIFNR>
+         <NAME1>Company DELTA</NAME1>
+         <STRAS>Money Street</STRAS>
+         <ORT01>Duckburg</ORT01>
+         <PSTLZ>64640</PSTLZ>
+         <LAND1>UK</LAND1>
+         <TELF1>00123/549945000</TELF1>
+         <TELFX>00123/549945001</TELFX>
+         <SPRAS>E</SPRAS>
+         <ANRED>Company</ANRED>
+         <IHREZ>325</IHREZ>
+         <KNREF>LGI</KNREF>
+         <SPRAS_ISO>EN</SPRAS_ISO>
+      </E1EDKA1>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>WE</PARVW>
+         <PARTN>0000010002</PARTN>
+         <LIFNR>0987654321</LIFNR>
+         <NAME1>Company DELTA</NAME1>
+         <STRAS>Delivery Street 1</STRAS>
+         <ORT01>Mouseton</ORT01>
+         <PSTLZ>00868</PSTLZ>
+         <LAND1>UK</LAND1>
+         <TELF1>001234/549945000</TELF1>
+         <TELFX>001234/549945001</TELFX>
+         <SPRAS>E</SPRAS>
+         <ANRED>Company</ANRED>
+         <IHREZ>325</IHREZ>
+         <KNREF>LGI</KNREF>
+         <SPRAS_ISO>EN</SPRAS_ISO>
+      </E1EDKA1>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>RS</PARVW>
+         <PARTN>0000010045</PARTN>
+         <LIFNR>12345678</LIFNR>
+         <NAME1>Company GAMMA</NAME1>
+         <STRAS>Industry Street</STRAS>
+         <ORT01>Duckhome</ORT01>
+         <PSTLZ>32145</PSTLZ>
+         <LAND1>UK</LAND1>
+         <TELF1>00123/549945000</TELF1>
+         <TELFX>00123/549945001</TELFX>
+         <SPRAS>E</SPRAS>
+         <ANRED>Company</ANRED>
+         <IHREZ>325</IHREZ>
+         <KNREF>LGI</KNREF>
+         <SPRAS_ISO>EN</SPRAS_ISO>
+      </E1EDKA1>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>009</QUALF>
+         <BELNR>0090119326</BELNR>
+         <DATUM>20100101</DATUM>
+      </E1EDK02>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>001</QUALF>
+         <BELNR>4278</BELNR>
+      </E1EDK02>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>002</QUALF>
+         <BELNR>0010116402</BELNR>
+         <DATUM>20100101</DATUM>
+      </E1EDK02>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>016</QUALF>
+         <BELNR>0080038350</BELNR>
+         <DATUM>20100131</DATUM>
+      </E1EDK02>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>012</QUALF>
+         <BELNR>0080038350</BELNR>
+         <DATUM>20100531</DATUM>
+      </E1EDK02>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>016</IDDAT>
+         <DATUM>20100101</DATUM>
+      </E1EDK03>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>001</IDDAT>
+         <DATUM>20100101</DATUM>
+      </E1EDK03>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>012</IDDAT>
+         <DATUM>20100102</DATUM>
+      </E1EDK03>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>011</IDDAT>
+         <DATUM>20100601</DATUM>
+      </E1EDK03>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>024</IDDAT>
+         <DATUM>20100115</DATUM>
+      </E1EDK03>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>028</IDDAT>
+         <DATUM>20100201</DATUM>
+      </E1EDK03>
+      <E1EDK04 SEGMENT="1">
+         <MWSKZ>A1</MWSKZ>
+         <MSATZ>19.000</MSATZ>
+         <MWSBT>373.16</MWSBT>
+      </E1EDK04>
+      <E1EDK17 SEGMENT="1">
+         <QUALF>001</QUALF>
+         <LKOND>DDU</LKOND>
+         <LKTEXT>Delivered Duty Unpaid</LKTEXT>
+      </E1EDK17>
+      <E1EDK18 SEGMENT="1">
+         <QUALF>001</QUALF>
+         <TAGE>30</TAGE>
+         <PRZNT>0</PRZNT>
+         <ZTERM_TXT>Up to 15.07.2010 without deduction</ZTERM_TXT>
+      </E1EDK18>
+      <E1EDK28 SEGMENT="1">
+         <BRNUM>65212439</BRNUM>
+         <BNAME>Bank of Duckburg</BNAME>
+         <ACNUM>4632175619</ACNUM>
+         <ACNAM>Company Delta</ACNAM>
+      </E1EDK28>
+      <E1EDK14 SEGMENT="1">
+         <QUALF>008</QUALF>
+         <ORGID>1000</ORGID>
+      </E1EDK14>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>000010</POSEX>
+         <MENGE>16.000</MENGE>
+         <MENEE>PCE</MENEE>
+         <NTGEW>48.000</NTGEW>
+         <GEWEI>KGM</GEWEI>
+         <BRGEW>48.000</BRGEW>
+         <PSTYV>ZKEN</PSTYV>
+         <WERKS>1000</WERKS>
+         <E1EDP02 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <BELNR>4278</BELNR>
+         </E1EDP02>
+         <E1EDP02 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <BELNR>0010116402</BELNR>
+            <ZEILE>000010</ZEILE>
+            <DATUM>20100101</DATUM>
+         </E1EDP02>
+         <E1EDP02 SEGMENT="1">
+            <QUALF>016</QUALF>
+            <BELNR>0080038350</BELNR>
+            <ZEILE>000010</ZEILE>
+            <DATUM>20100101</DATUM>
+         </E1EDP02>
+         <E1EDP03 SEGMENT="1">
+            <IDDAT>029</IDDAT>
+            <DATUM>20100101</DATUM>
+         </E1EDP03>
+         <E1EDP03 SEGMENT="1">
+            <IDDAT>001</IDDAT>
+            <DATUM>20100101</DATUM>
+         </E1EDP03>
+         <E1EDP03 SEGMENT="1">
+            <IDDAT>011</IDDAT>
+            <DATUM>20100101</DATUM>
+         </E1EDP03>
+         <E1EDP03 SEGMENT="1">
+            <IDDAT>025</IDDAT>
+            <DATUM>20100101</DATUM>
+         </E1EDP03>
+         <E1EDP03 SEGMENT="1">
+            <IDDAT>027</IDDAT>
+            <DATUM>20100101</DATUM>
+         </E1EDP03>
+         <E1EDP03 SEGMENT="1">
+            <IDDAT>023</IDDAT>
+            <DATUM>20100101</DATUM>
+         </E1EDP03>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>A1234567676  00008K62</IDTNR>
+            <IDTNR_EXTERNAL>A1234567676  00008</IDTNR_EXTERNAL>
+            <IDTNR_GUID>00000000000000000000000000000000</IDTNR_GUID>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>R123.4567.08.83</IDTNR>
+            <KTEXT>R123.45M2 Material Description</KTEXT>
+            <IDTNR_EXTERNAL>R123.4567.08.83</IDTNR_EXTERNAL>
+            <IDTNR_GUID>DDBBCC8B8BA2A21DDBBCC8B8BA2A2</IDTNR_GUID>
+         </E1EDP19>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>004</QUALF>
+            <BETRG>2337.16</BETRG>
+         </E1EDP26>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <BETRG>1964.00</BETRG>
+         </E1EDP26>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>010</QUALF>
+            <BETRG>1964.00</BETRG>
+         </E1EDP26>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>011</QUALF>
+            <BETRG>1964.00</BETRG>
+         </E1EDP26>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>012</QUALF>
+            <BETRG>1964.00</BETRG>
+         </E1EDP26>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <BETRG>122.75</BETRG>
+         </E1EDP26>
+         <E1EDP26 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <BETRG>1964.00</BETRG>
+         </E1EDP26>
+         <E1EDP05 SEGMENT="1">
+            <ALCKZ>+</ALCKZ>
+            <KSCHL>PR00</KSCHL>
+            <KOTXT>Price</KOTXT>
+            <BETRG>1964.00</BETRG>
+            <KRATE>122.75</KRATE>
+            <UPRBS>1</UPRBS>
+            <MEAUN>PCE</MEAUN>
+            <MWSKZ>A1</MWSKZ>
+            <KOEIN>EUR</KOEIN>
+            <KOBAS>16</KOBAS>
+         </E1EDP05>
+         <E1EDP04 SEGMENT="1">
+            <MWSKZ>A1</MWSKZ>
+            <MSATZ>19.000</MSATZ>
+            <MWSBT>373.16</MWSBT>
+         </E1EDP04>
+      </E1EDP01>
+      <E1EDS01 SEGMENT="1">
+         <SUMID>001</SUMID>
+         <SUMME>1</SUMME>
+      </E1EDS01>
+      <E1EDS01 SEGMENT="1">
+         <SUMID>012</SUMID>
+         <SUMME>2337.16</SUMME>
+         <WAERQ>EUR</WAERQ>
+      </E1EDS01>
+      <E1EDS01 SEGMENT="1">
+         <SUMID>005</SUMID>
+         <SUMME>373.16</SUMME>
+         <WAERQ>EUR</WAERQ>
+      </E1EDS01>
+      <E1EDS01 SEGMENT="1">
+         <SUMID>011</SUMID>
+         <SUMME>2337.16</SUMME>
+         <WAERQ>EUR</WAERQ>
+      </E1EDS01>
+      <E1EDS01 SEGMENT="1">
+         <SUMID>010</SUMID>
+         <SUMME>1964.00</SUMME>
+         <WAERQ>EUR</WAERQ>
+      </E1EDS01>
+   </IDOC>
+</INVOIC02>

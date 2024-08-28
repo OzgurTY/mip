@@ -1,0 +1,719 @@
+<!DOCTYPE html
+  PUBLIC "XSLT-compat">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>SPOTIFY API</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+      <style>
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        background-color: #272727;
+                        height: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        margin: 0;
+}
+
+                    main {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 20px;
+                        padding: 20px;
+                        width: 100%;
+                        max-width: 100%;
+}
+
+                    .music-card {
+                        background-color: #333;
+                        width: 300px;
+                        border-radius: 15px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 8px rgba(0,
+    0,
+    0,
+    0.2);
+                        transition: transform 0.2s ease-in-out;
+                        display: flex;
+                        flex-direction: column;
+}
+
+                    .music-card:hover {
+                        transform: scale(1.05);
+}
+
+                    .music-card-image {
+                        position: relative;
+                        overflow: hidden;
+}
+
+                    .music-card-image img {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                        transition: opacity 0.3s ease;
+}
+
+                    .music-card:hover .music-card-image img {
+                        opacity: 0.6;
+}
+
+                    .play-button {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,
+    -50%);
+                        background: transparent;
+                        border: none;
+                        border-radius: 50%;
+                        width: 350px;
+                        height: 350px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: background 0.3s ease, transform 0.3s ease;
+                        opacity: 0;
+}
+
+                    .music-card:hover .play-button {
+                        opacity: 1;
+}
+
+                    .play-button svg {
+                        fill: white;
+                        width: 48px;
+                        height: 48px;
+                        transition: fill 0.3s ease;
+}
+
+                    .play-button.playing svg {
+                        fill: red;
+}
+
+                    .music-card-name {
+                        background-color: #444;
+                        padding: 15px;
+                        text-align: center;
+                        flex-grow: 1;
+}
+
+                    .music-card-name h1 {
+                        color: #fff;
+                        font-size: 1.5rem;
+                        margin: 0;
+                        text-transform: uppercase;
+}
+
+                    .music-card-author {
+                        background-color: #555;
+                        padding: 10px;
+                        text-align: center;
+                        height: auto;
+}
+
+                    .music-card-author h3 {
+                        color: #ddd;
+                        font-size: 1rem;
+                        margin: 0;
+                        font-weight: normal;
+}
+
+                    footer {
+                        text-align: center;
+                        margin-top: 20px;
+                        font-size: 0.9rem;
+                        color: #666;
+}
+                </style>
+   </head>
+   <body>
+      <header style="align-items: center; text-align:center; color: whitesmoke;">
+         <h1>Spotify API by ozgur.yavuz</h1>
+      </header>
+      <main>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2739ace71b3398c6c224bf2d5fc"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/482e16b124a940d16e450527aaea0e4c3459c64d?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/482e16b124a940d16e450527aaea0e4c3459c64d?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>It's Not Right - Radio Edit</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Gianni Romano Emanuele Esposito Helen Tesfazghi</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273152f4234fe4014281fe959b8"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/4bac1a8d54eaecd9f53744b47132d82d2583afde?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/4bac1a8d54eaecd9f53744b47132d82d2583afde?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Otme Bulbul - Jacob Groening Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Monohøle Jacob Groening Ezgihan</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273a8714763e521564515b868ea"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/946c7d754551c89cbf075b90ed7ad726b9a86ef8?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/946c7d754551c89cbf075b90ed7ad726b9a86ef8?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Clandestina</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>FILV Edmofo</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273edd606de15d01b969db54e11"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/3b0b773ced5ec4a61747b68154636776d68a4bb1?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/3b0b773ced5ec4a61747b68154636776d68a4bb1?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>7 Seconds</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Joezi Coco Pape Diouf</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273111081c73cb31997094ae4c3"><button class="play-button" aria-label="Play/Pause" data-preview-url="null"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="null"></audio></div>
+            <div class="music-card-name">
+               <h1>Anchor Point</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Ahmed Spins Stevo Atambire</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273c09e463184d5164052cc5191"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/c7a7b915a7b139f1b82ee867931a6d11854819e4?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/c7a7b915a7b139f1b82ee867931a6d11854819e4?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Allies</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Mahmut Orhan Drumstone</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273cdc2c370800cad705c9ed05d"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/74043183bd01a0453dadc191e2f4def6e0451212?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/74043183bd01a0453dadc191e2f4def6e0451212?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>TERRITORY</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>The Blaze</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273dc9e77d03b672bf2a9bb9c46"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/c31e54ad14644393b8502d65d5bb0c5efcd4c7b7?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/c31e54ad14644393b8502d65d5bb0c5efcd4c7b7?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Ethnica</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Nico de Andrea Vanetty</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27311f5cb2f4ef58f5e1eae30b6"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/d6873a2a1511a4c891a5155b543829aae4889f2b?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/d6873a2a1511a4c891a5155b543829aae4889f2b?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>The Boy Is Mine</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>James Mac Vall Rosalie</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27325ed5aea07a11234fb66f85b"><button class="play-button" aria-label="Play/Pause" data-preview-url="null"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="null"></audio></div>
+            <div class="music-card-name">
+               <h1>There Is Still Pain Left - Laolu Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Sophie Hunger Laolu</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273d81a98db4e5a9e6963e62132"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/d4d15b98af715ea4e7d4c4a53bd62336d7ba5ade?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/d4d15b98af715ea4e7d4c4a53bd62336d7ba5ade?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>En Su Lugar</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Alé Kumá Malóne Kimonos</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27378d7f413a0630ac3548b8696"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/b7b3c4d18f45f015a4232de9cb3dd7a0c660a6cb?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/b7b3c4d18f45f015a4232de9cb3dd7a0c660a6cb?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Mwaki</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Zerb Sofiya Nzau</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2736557c596368c4579b4e35eac"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/ae56890c8ab0db9d998ef40cb483195e86d98408?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/ae56890c8ab0db9d998ef40cb483195e86d98408?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>summer on the inside</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>warner case Jean Tonique Max Kaluza</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2733159260257decd3abe16b88e"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/e96fc046cea2dd7bba1bf9cb596897d12fb061ac?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/e96fc046cea2dd7bba1bf9cb596897d12fb061ac?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Sete</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>BLOND:ISH Francis Mercier Amadou &amp; Mariam</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27320c72e8da1a1838105e72bbf"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/08c1a090aca7aa6edd37fd8e5f1074a0fd973600?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/08c1a090aca7aa6edd37fd8e5f1074a0fd973600?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Lost</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>RSCL it's murph Twin Diplomacy Jack August</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273aad332680f96106effa6c4f7"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/32b28da4f0b602fc0f427fd694b804d9ac0b84bd?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/32b28da4f0b602fc0f427fd694b804d9ac0b84bd?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Your Voice - Adam Port Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Caiiro AWEN Adam Port</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27388d71aadd009fe1a83df88f2"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/e36e0bd4714844f1f9d992398b41a3e333f15cc9?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/e36e0bd4714844f1f9d992398b41a3e333f15cc9?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>(It Goes Like) Nanana - Edit</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Peggy Gou</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2736dcb8bc30bfaac0a5febb97e"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/b31bbb1120afde2bed0950d6dcc46455017fc1e8?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/b31bbb1120afde2bed0950d6dcc46455017fc1e8?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Aguila (feat. Cumbiafrica)</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>HUGEL Westend Cumbiafrica</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2736715cf79a2670faccf1c547d"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/c094ba0b7be8fdfa74b56d8aafd3f8f15d645361?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/c094ba0b7be8fdfa74b56d8aafd3f8f15d645361?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Wizard of Love - Radio Edit</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>BLOND:ISH Shawni</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2733232ebab106e55e093398988"><button class="play-button" aria-label="Play/Pause" data-preview-url="null"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="null"></audio></div>
+            <div class="music-card-name">
+               <h1>Drums (Feat. Kim Petras)</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>James Hype Kim Petras</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2739747594175eb96597b3d9e8c"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/529e82dd67fb7453e795d86e0713740600bee00e?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/529e82dd67fb7453e795d86e0713740600bee00e?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Wish We Could</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Nico de Andrea Darla Jade Syon</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2732c6ca8f705a655d66e5dcfaf"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/d072fa6d6cfca48c2d8ec5693a620c66fe384b5e?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/d072fa6d6cfca48c2d8ec5693a620c66fe384b5e?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Yâr - Ezgi Sağlık Vocal Edit</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Avcio fidanson Ezgi Sağlık</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273b8471013556c91a2c252ac99"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/ae2395f3c80442c65c97d5f39e97923578a1bbf5?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/ae2395f3c80442c65c97d5f39e97923578a1bbf5?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Izegbe</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Darksidevinyl</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2732f6c2253ef0e3ac14aec9e0d"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/c533810fc60a80d8562f766b6806a5ffb6c1c1bf?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/c533810fc60a80d8562f766b6806a5ffb6c1c1bf?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Far Away Place - Rampa Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Xinobi Vaarwell Rampa</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2731d89e754e7096b90d582bbbc"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/5bb00a0cb1e23c9d232d869fb8dd7ad88b0bae5d?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/5bb00a0cb1e23c9d232d869fb8dd7ad88b0bae5d?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>NaNa Djon</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>HUGEL Francis Mercier Victor Démé</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2736c66a6aa59350f462c4ba6cf"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/4bf6742a86fd78df63e3cae771fe2c0399c3ba8f?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/4bf6742a86fd78df63e3cae771fe2c0399c3ba8f?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Bamboleo</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Sllash &amp; Doppe</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27317b3b43a6634ad3f5aabe27c"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/eac34e93db91b9953470202eb49ce75d8931b55f?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/eac34e93db91b9953470202eb49ce75d8931b55f?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>I Feel Love</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Mr. Belt &amp; Wezol BENDAH LIMITED LIFE</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2739b18753eb7552e25b7f134c4"><button class="play-button" aria-label="Play/Pause" data-preview-url="null"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="null"></audio></div>
+            <div class="music-card-name">
+               <h1>You &amp; Me - Rivo Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Disclosure Eliza Doolittle Rivo</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273af11b364469ef9f12afe0ea9"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/18159737e853b5901582c72b16f4459be15b04dc?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/18159737e853b5901582c72b16f4459be15b04dc?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Ode Ireti - Nitefreak Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>&amp;friends Nitefreak eL-Jay Oluwadamvic</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27334dd86e31e6ca80e9d2a2c63"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/adf28f7b7588a6fab929dbe8c871321535617637?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/adf28f7b7588a6fab929dbe8c871321535617637?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Famax</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>RAFFA GUIDO</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273b9a7ec6780dc7de0781ca03b"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/7eb1f1c787e2a9c2002ddb4f98db6c2ee7946c28?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/7eb1f1c787e2a9c2002ddb4f98db6c2ee7946c28?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Paloma</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>MiRET Tuğçe Kurtiş Santi &amp; Tuğçe</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273669deaae1cd88903e14f06bd"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/551961dc7aac5d7077d158213bb6c9af81cb53f3?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/551961dc7aac5d7077d158213bb6c9af81cb53f3?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>3 Malas</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>BADDIES ONLY</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273cfd5b4fcda4a7bd6de56627c"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/87d51d07549c37cf6be7915f39e7aaf754db61fe?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/87d51d07549c37cf6be7915f39e7aaf754db61fe?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>La Tarde</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Jude &amp; Frank AtcG</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27312d1bb1cf053d86059746146"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/5b63701e6f532553f96abd5eb74ff185d46645e4?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/5b63701e6f532553f96abd5eb74ff185d46645e4?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Amathole</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Joezi Lizwi</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273abc020091d3b09277def2e9e"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/1468a9d86204fd30bce0308dee6e7c4abece56d6?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/1468a9d86204fd30bce0308dee6e7c4abece56d6?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Hammanda</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Romaryo Robert Georgescu White</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273f50da72a3d6dc3ef32948178"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/4f16fe626c681f23128b30ff7e109eff022f9aba?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/4f16fe626c681f23128b30ff7e109eff022f9aba?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Mnike (feat. DJ Maphorisa, Nandipha808, Ceeka RSA &amp; Tyron Dee)</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Tyler ICU Tumelo_za DJ Maphorisa Nandipha808 Ceeka RSA Tyrone Dee</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b2739d4ae39d0bca411fe0dc2edf"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/da40b8a3933b0f36e8a05f48d53d7676f1f4f697?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/da40b8a3933b0f36e8a05f48d53d7676f1f4f697?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Ojapiano</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>KCee</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273adfc1ac5836f96adac580271"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/f4b21794b26cd51251d3f537eeb0c3d8b6d8a811?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/f4b21794b26cd51251d3f537eeb0c3d8b6d8a811?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>UNAVAILABLE (feat. Musa Keys)</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Davido Musa Keys</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273bb5ec44184c7b59461c2a51b"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/80654c827c7db57dd617278351db8b53cef16b06?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/80654c827c7db57dd617278351db8b53cef16b06?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Mi Casa</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>2fox Nandi</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27337bef0db102045d3aec9eb80"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/cf1cf8f545ad789bc9e15972c904fec21f81f906?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/cf1cf8f545ad789bc9e15972c904fec21f81f906?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Henna - Diass Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>RUNO Diass</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27317a013a00d0a33f3dd49974d"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/04f167dc6029b10591d32a723a684e14ef1d4a21?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/04f167dc6029b10591d32a723a684e14ef1d4a21?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Move</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Adam Port Stryv Keinemusik Orso Malachiii</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27324695d00c57166fa58c4e637"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/dddf439dc0e3ad2179c242a4c3406c34c81d09f7?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/dddf439dc0e3ad2179c242a4c3406c34c81d09f7?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Kamili</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Francis Mercier Nitefreak Idd Aziz</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273c05dc3a25df9d8952cff87a9"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/2f30fa9c5d9afc916dea1b38f13b87a24bb58b1e?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/2f30fa9c5d9afc916dea1b38f13b87a24bb58b1e?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Povoada - Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Sued Nunes Maz Antdot</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273e96e7e61742cbb2ac3943e2d"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/7b762103c4581392cd2dca363ba8ab8a637d4236?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/7b762103c4581392cd2dca363ba8ab8a637d4236?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Gorah</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>Nitefreak Emmanuel Jal</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b273065cbee81b70150e9dcd6138"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/bb1622f9b43d337eeba7dcdff06cb886308e8cfc?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/bb1622f9b43d337eeba7dcdff06cb886308e8cfc?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Your Love - Antdot Remix</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>PLS&amp;TY Sofiya Nzau Antdot</h3>
+            </div>
+         </div>
+         <div class="music-card">
+            <div class="music-card-image"><img src="https://i.scdn.co/image/ab67616d0000b27395fc6a9c631f260ea9d48dee"><button class="play-button" aria-label="Play/Pause" data-preview-url="https://p.scdn.co/mp3-preview/4465336aa89bcbe61f5b9a0e757d60c91dc0cb01?cid=9b130e7ee4de498f85e333e108e349a7"><svg viewBox="0 0 24 24" class="play-icon">
+                     <path d="M8 5v14l11-7z"></path></svg><svg viewBox="0 0 24 24" class="pause-icon" style="display: none;">
+                     <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg></button><audio class="audio-player">
+                  <source type="audio/mpeg" src="https://p.scdn.co/mp3-preview/4465336aa89bcbe61f5b9a0e757d60c91dc0cb01?cid=9b130e7ee4de498f85e333e108e349a7"></audio></div>
+            <div class="music-card-name">
+               <h1>Isla de Mujeres</h1>
+            </div>
+            <div class="music-card-author">
+               <h3>BADDIES ONLY Maahez TIEDYE</h3>
+            </div>
+         </div>
+      </main>
+      <footer>
+         <p>© 2024 Spotify API ozgur_yavuz</p>
+      </footer><script>
+                    document.querySelectorAll('.play-button').forEach(button => {
+                        const audioPlayer = button.nextElementSibling; // audio elementini seçiyoruz
+                        const playIcon = button.querySelector('.play-icon');
+                        const pauseIcon = button.querySelector('.pause-icon');
+                        let isPlaying = false;
+
+                        button.addEventListener('click', () => {
+                            if (isPlaying) {
+                                audioPlayer.pause();
+                                playIcon.style.display = 'block';
+                                pauseIcon.style.display = 'none';
+                                isPlaying = false;
+        } else {
+                                audioPlayer.play();
+                                playIcon.style.display = 'none';
+                                pauseIcon.style.display = 'block';
+                                isPlaying = true;
+        }
+    });
+});
+                </script></body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<data>
+  <item>
+    <name>Apple</name>
+    <price>2.0</price>
+  </item>
+  <item>
+    <name>Orange</name>
+    <price>1.5</price>
+  </item>
+  <item>
+    <name>Banana</name>
+    <price>4.6</price>
+  </item>
+</data>
